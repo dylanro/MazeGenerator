@@ -69,22 +69,21 @@ class Cell {
     let neighbors = [];
 
     let top = cells[index(this.x, this.y - 1)];
-    let right = cells[index(this.x + 1, this.y)];
-    let bottom = cells[index(this.x, this.y + 1)];
-    let left = cells[index(this.x - 1, this.y)];
-
     if (top && !top.visited && this.y > 0) {
       neighbors.push(top);
     }
 
+    let right = cells[index(this.x + 1, this.y)];
     if (right && !right.visited && this.x < settings.cols - 1) {
       neighbors.push(right);
     }
 
+    let bottom = cells[index(this.x, this.y + 1)];
     if (bottom && !bottom.visited && this.y < settings.rows - 1) {
       neighbors.push(bottom);
     }
 
+    let left = cells[index(this.x - 1, this.y)];
     if (left && !left.visited && this.x > 0) {
       neighbors.push(left);
     }
