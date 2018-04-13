@@ -73,25 +73,23 @@ class Cell {
     let bottom = cells[index(this.x, this.y + 1)];
     let left = cells[index(this.x - 1, this.y)];
 
-    if (top != undefined && top.visited == false && this.y > 0) {
+    if (top && !top.visited && this.y > 0) {
       neighbors.push(top);
     }
 
-    if (right != undefined && right.visited == false && this.x < settings.cols - 1) {
+    if (right && !right.visited && this.x < settings.cols - 1) {
       neighbors.push(right);
     }
 
-    if (bottom != undefined && bottom.visited == false && this.y < settings.rows - 1) {
+    if (bottom && !bottom.visited && this.y < settings.rows - 1) {
       neighbors.push(bottom);
     }
 
-    if (left != undefined && left.visited == false && this.x > 0) {
+    if (left && !left.visited && this.x > 0) {
       neighbors.push(left);
     }
 
-    let n = Math.floor(Math.random() * neighbors.length - 1) + 1;
-
-    return neighbors[n];
+    return neighbors[Math.floor(Math.random() * neighbors.length - 1) + 1];
   }
 }
 
