@@ -39,5 +39,10 @@ function handleSubmit() {
     context.clearRect(0, 0, settings.width, settings.height);
     m.generate();
     m.display();
+    rc.rectangle(3,3,width-6,width-6, {
+      roughness: 0,
+      stroke: '#86E7B8',
+      strokeWidth: width/(width/3.3)
+    });
     }
   }
